@@ -52,7 +52,7 @@ It allows natural language commands to control local system behavior — perfect
 ## Adding Your Own Plugin
 - Create a .py file in caelum_sys/plugins/ and use the decorator:
 
-    from caelum_sys.registry import register_command
+        from caelum_sys.registry import register_command
 
         @register_command("run my task")
         def my_command(command: str):
