@@ -44,9 +44,7 @@ It allows natural language commands to control local system behavior — perfect
 
 ## Needs more Plugins
 
-- This library is powered by plugins, the more you add, the more capable it becomes. Each plugin enables new automation tasks and natural language commands. Whether you're automating simple actions or building complex workflows, plugins make it possible.
-
-- Feel free to contribute your own! Add any functionality you think would enhance caelum-sys and help expand its automation potential.
+- The true power of caelum-sys lies in its plugin system. Each plugin you add unlocks new automation capabilities and natural language commands. Whether you're automating everyday tasks or building complex workflows, plugins make it possible. You're encouraged to contribute your own! Add any functionality you think would benefit the project and help push the limits of what caelum-sys can do.
 
 
 ## Adding Your Own Plugin
