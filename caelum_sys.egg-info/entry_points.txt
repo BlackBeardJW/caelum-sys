@@ -1,0 +1,2 @@
+[console_scripts]
+caelum-sys = caelum_sys.cli:main
