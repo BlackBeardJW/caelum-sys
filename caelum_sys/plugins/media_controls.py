@@ -1,5 +1,6 @@
 from caelum_sys.registry import register_command
 import pyautogui
+import os
 
 @register_command("pause music")
 def pause_music():
@@ -9,6 +10,7 @@ def pause_music():
 @register_command("mute volume")
 def mute_volume():
     pyautogui.press("volumemute")
+    os.system("nircmd mutesysvolume toggle")  # Toggle mute using nircmd
     return "🔇 Volume muted/unmuted."
 
 @register_command("volume up")

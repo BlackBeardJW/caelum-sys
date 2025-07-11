@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="caelum-sys",
-    version="0.1.3",
+    version="0.1.5",
     description="A human-friendly system automation layer for scripting and AI agents",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
@@ -10,7 +10,9 @@ setup(
     packages=find_packages(),
     install_requires=[
         "psutil",
-        "pyautogui"
+        "pyautogui",
+        "requests",  # For network tools and potential LLM integration
+        "pillow",    # Required by pyautogui for screenshots
     ],
     entry_points={
         "console_scripts": [

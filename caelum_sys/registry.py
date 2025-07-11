@@ -12,10 +12,7 @@ def register_command(trigger, safe=True):
     return wrapper
 
 def get_registered_command(command):
-    for trigger in registry:
-        if command.lower().startswith(trigger):
-            return registry[trigger]["func"]
-    return None
+    return registry.get(command.lower(), {}).get("func", None)
 
 def get_registered_command_phrases():
     return list(registry.keys())
