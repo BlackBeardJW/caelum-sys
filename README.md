@@ -1,4 +1,6 @@
-# caelum-sys
+![PyPI version](https://img.shields.io/pypi/v/caelum-sys)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/caelum-sys)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 **caelum-sys** is a human-friendly system automation toolkit for Python.  
 It allows natural language commands to control local system behavior — perfect for scripting, AI agents, or personal assistants like Caelum.
