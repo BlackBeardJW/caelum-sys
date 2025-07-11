@@ -20,12 +20,12 @@ It allows natural language commands to control local system behavior — perfect
 
 ## Installation
 
-- pip install caelum-sys
+        pip install caelum-sys
 
 - Or for local development:
-- git clone https://github.com/blackbeardjw/caelum-sys.git
-- cd caelum-sys
-- pip install -e .
+        git clone https://github.com/blackbeardjw/caelum-sys.git
+        cd caelum-sys
+        pip install -e .
 
 ## Usage
 - Python:
