@@ -1,7 +1,6 @@
 import importlib
 import os
 import pathlib
-import pyautogui
 
 def load_all_plugins():
     plugins_dir = pathlib.Path(__file__).parent / "plugins"

@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="caelum-sys",
-    version="0.1.5",
+    version="0.1.6",
     description="A human-friendly system automation layer for scripting and AI agents",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",

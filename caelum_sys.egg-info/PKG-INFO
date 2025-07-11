@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: caelum-sys
-Version: 0.1.5
+Version: 0.1.6
 Summary: A human-friendly system automation layer for scripting and AI agents
 Author: Joshua Wells
 Classifier: Programming Language :: Python :: 3

@@ -151,3 +151,6 @@ print(ai_response)
 - Commands are case-insensitive
 - File paths can be relative or absolute
 - Some commands may require elevated permissions
+- All code is extensively documented with inline comments explaining functionality
+- Each plugin module contains detailed docstrings explaining how commands work
+- Function signatures and parameter types are clearly documented for developers
