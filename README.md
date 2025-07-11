@@ -1,5 +1,6 @@
 ![PyPI version](https://img.shields.io/pypi/v/caelum-sys)
-![PyPI - Downloads](https://img.shields.io/pypi/dm/caelum-sys)
+![PyPI - Wheel](https://img.shields.io/pypi/wheel/caelum-sys)
+![PyPI - Status](https://img.shields.io/pypi/status/caelum-sys)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 **caelum-sys** is a human-friendly system automation toolkit for Python.  
