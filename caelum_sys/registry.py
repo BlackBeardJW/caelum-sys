@@ -2,20 +2,27 @@
 
 registry = {}
 
-def register_command(trigger):
-    """
-    Decorator to register a plugin command trigger to a function.
-    """
+def register_command(trigger, safe=True):
     def wrapper(func):
-        registry[trigger.lower()] = func
+        registry[trigger.lower()] = {
+            "func": func,
+            "safe": safe
+        }
         return func
     return wrapper
 
 def get_registered_command(command):
-    """
-    Match incoming command to a registered plugin.
-    """
     for trigger in registry:
         if command.lower().startswith(trigger):
-            return registry[trigger]
+            return registry[trigger]["func"]
     return None
+
+def get_registered_command_phrases():
+    return list(registry.keys())
+
+def get_safe_registry():
+    return {
+        k: v["func"]
+        for k, v in registry.items()
+        if v.get("safe", True)
+    }

@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: caelum-sys
-Version: 0.1.1
+Version: 0.1.2
 Summary: A human-friendly system automation layer for scripting and AI agents
 Author: Joshua Wells
 Classifier: Programming Language :: Python :: 3
@@ -10,17 +10,22 @@ Classifier: Topic :: System :: Shells
 Classifier: License :: OSI Approved :: MIT License
 Requires-Python: >=3.7
 Description-Content-Type: text/markdown
+License-File: LICENSE
 Requires-Dist: psutil
 Requires-Dist: pyautogui
 Dynamic: author
 Dynamic: classifier
 Dynamic: description
 Dynamic: description-content-type
+Dynamic: license-file
 Dynamic: requires-dist
 Dynamic: requires-python
 Dynamic: summary
 
-# caelum-sys
+![PyPI](https://img.shields.io/pypi/v/caelum-sys)
+![Wheel](https://img.shields.io/pypi/wheel/caelum-sys)
+![Status](https://img.shields.io/pypi/status/caelum-sys)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 **caelum-sys** is a human-friendly system automation toolkit for Python.  
 It allows natural language commands to control local system behavior â€” perfect for scripting, AI agents, or personal assistants like Caelum.
@@ -39,43 +44,44 @@ It allows natural language commands to control local system behavior â€” pe
 
 ## Installation
 
-- pip install caelum-sys
+        pip install caelum-sys
 
 - Or for local development:
-- git clone https://github.com/blackbeardjw/caelum-sys.git
-- cd caelum-sys
-- pip install -e .
+
+        git clone https://github.com/blackbeardjw/caelum-sys.git
+        cd caelum-sys
+        pip install -e .
 
 ## Usage
 - Python:
-    from caelum_sys import do
 
-    do("open notepad")
-    do("play spotify chill vibes")
-    do("list files in Downloads")
+        from caelum_sys import do
+
+        do("open notepad")
+        do("play spotify chill vibes")
+        do("list files in Downloads")
 
 - CLI:
-    caelum-sys "get cpu usage"
-    caelum-sys "open browser"
 
-| Plugin       | Example Command                              |
-| ------------ | -------------------------------------------- |
-| Spotify      | `play spotify chill vibes`                   |
-| Filesystem   | `list files in .`, `delete file example.txt` |
-| Browser      | `open browser`, `open url github.com`        |
-| Screenshot   | `take screenshot`                            |
-| System Stats | `get cpu usage`, `get memory stats`          |
+        caelum-sys "get cpu usage"
+        caelum-sys "open browser"
+
+## Needs more Plugins
+
+- The true power of caelum-sys lies in its plugin system. Each plugin you add unlocks new automation capabilities and natural language commands. Whether you're automating everyday tasks or building complex workflows, plugins make it possible. You're encouraged to contribute your own! Add any functionality you think would benefit the project and help push the limits of what caelum-sys can do.
 
 
 ## Adding Your Own Plugin
 - Create a .py file in caelum_sys/plugins/ and use the decorator:
-    from caelum_sys.registry import register_command
 
-    @register_command("run my task")
-    def my_command(command: str):
+        from caelum_sys.registry import register_command
+
+        @register_command("run my task")
+        def my_command(command: str):
         return "Command executed!"
 
- Running Tests
-    pytest tests
+ ## Running Tests
+
+ -   pytest tests
 
     All plugins are safely mocked (no system damage during testing).
