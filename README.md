@@ -30,19 +30,16 @@ It allows natural language commands to control local system behavior — perfect
 ## Usage
 - Python:
 
-    from caelum_sys import do
+        from caelum_sys import do
 
-    do("open notepad")
-
-    do("play spotify chill vibes")
-
-    do("list files in Downloads")
+        do("open notepad")
+        do("play spotify chill vibes")
+        do("list files in Downloads")
 
 - CLI:
 
-    caelum-sys "get cpu usage"
-
-    caelum-sys "open browser"
+        caelum-sys "get cpu usage"
+        caelum-sys "open browser"
 
 ## Needs more Plugins
 
