@@ -44,10 +44,11 @@ It allows natural language commands to control local system behavior — perfect
 
     caelum-sys "open browser"
 
-- Needs more Plugins
-    This library is powered by plugins, the more you add, the more capable it becomes. Each plugin enables new automation tasks and natural language commands. Whether you're automating simple actions or building complex workflows, plugins make it possible.
+## Needs more Plugins
 
-    Feel free to contribute your own! Add any functionality you think would enhance caelum-sys and help expand its automation potential.
+- This library is powered by plugins, the more you add, the more capable it becomes. Each plugin enables new automation tasks and natural language commands. Whether you're automating simple actions or building complex workflows, plugins make it possible.
+
+Feel free to contribute your own! Add any functionality you think would enhance caelum-sys and help expand its automation potential.
 
 
 ## Adding Your Own Plugin
@@ -55,13 +56,14 @@ It allows natural language commands to control local system behavior — perfect
 
     from caelum_sys.registry import register_command
 
-    @register_command("run my task")
+        @register_command("run my task")
 
-    def my_command(command: str):
-    
+        def my_command(command: str):
+
         return "Command executed!"
 
- Running Tests
-    pytest tests
+ ## Running Tests
+
+ -   pytest tests
 
     All plugins are safely mocked (no system damage during testing).
