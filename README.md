@@ -29,31 +29,36 @@ It allows natural language commands to control local system behavior — perfect
 
 ## Usage
 - Python:
+
     from caelum_sys import do
 
     do("open notepad")
+
     do("play spotify chill vibes")
+
     do("list files in Downloads")
 
 - CLI:
+
     caelum-sys "get cpu usage"
+
     caelum-sys "open browser"
 
-| Plugin       | Example Command                              |
-| ------------ | -------------------------------------------- |
-| Spotify      | `play spotify chill vibes`                   |
-| Filesystem   | `list files in .`, `delete file example.txt` |
-| Browser      | `open browser`, `open url github.com`        |
-| Screenshot   | `take screenshot`                            |
-| System Stats | `get cpu usage`, `get memory stats`          |
+- Needs more Plugins
+    This library is powered by plugins, the more you add, the more capable it becomes. Each plugin enables new automation tasks and natural language commands. Whether you're automating simple actions or building complex workflows, plugins make it possible.
+
+    Feel free to contribute your own! Add any functionality you think would enhance caelum-sys and help expand its automation potential.
 
 
 ## Adding Your Own Plugin
 - Create a .py file in caelum_sys/plugins/ and use the decorator:
+
     from caelum_sys.registry import register_command
 
     @register_command("run my task")
+
     def my_command(command: str):
+    
         return "Command executed!"
 
  Running Tests
