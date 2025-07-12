@@ -30,11 +30,11 @@ class TestFileManagementIntegration:
     
     def test_create_and_check_file(self):
         """Test creating a file and verifying it exists."""
-        # Create file using CaelumSys command
-        result = do(f"create file {self.test_file}")
+        # Create file using CaelumSys command - note the correct syntax
+        result = do(f"create file at {self.test_file}")
         
         # Verify the command succeeded
-        assert "created" in result.lower() or "file" in result.lower()
+        assert "created" in result.lower() or "✅" in result
         
         # Verify the file actually exists
         assert os.path.exists(self.test_file)
