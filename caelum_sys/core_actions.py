@@ -175,11 +175,20 @@ def do(command: str):
         try:
             # Execute the command function (no arguments needed)
             result = plugin_func()
-            print(result)  # Also print for immediate feedback
+            # Handle Unicode encoding for Windows terminal
+            try:
+                print(result)  # Also print for immediate feedback
+            except UnicodeEncodeError:
+                # Fallback for terminals that don't support Unicode
+                safe_result = result.encode('ascii', 'replace').decode('ascii')
+                print(safe_result)
             return result
         except Exception as e:
             error_msg = f"❌ Error executing '{command}': {e}"
-            print(error_msg)
+            try:
+                print(error_msg)
+            except UnicodeEncodeError:
+                print(f"Error executing '{command}': {e}")
             return error_msg
     
     # Step 2: Try to match parameterized commands
