@@ -1,4 +1,0 @@
-psutil
-pyautogui
-requests
-pillow

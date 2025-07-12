@@ -21,11 +21,16 @@ setup(
     },
     classifiers=[
         "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
+        "Programming Language :: Python :: 3.13",
         "Operating System :: OS Independent",
         "Intended Audience :: Developers",
         "Topic :: System :: Shells",
         "License :: OSI Approved :: MIT License",
     ],
-    python_requires=">=3.7",
+    python_requires=">=3.9",
     include_package_data=True
 )

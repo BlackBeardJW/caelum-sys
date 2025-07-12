@@ -1,19 +1,19 @@
 # Byte-compiled / cache
 __pycache__/
+**/__pycache__/
+*/**/__pycache__/
 *.py[cod]
 *.pyo
 *.pyd
 *.so
-
-# Virtual environment
-.venv/
-env/
-venv/
+*.pyc
 
 # Distribution / packaging
 build/
 dist/
 *.egg-info/
+caelum_sys.egg-info/
+*.egg
 
 # Test and temp files
 test_*.txt
