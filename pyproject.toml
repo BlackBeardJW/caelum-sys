@@ -24,7 +24,10 @@ dependencies = [
 caelum-sys = "caelum_sys.cli:main"
 
 [build-system]
-requires = ["setuptools >= 77.0.3"]
+# Remove this pin when pypa/twine supports core metadata 2.4
+# hynek/build-and-inspect-python-package runs `twine check`
+# which is causing the release CI to fail
+requires = ["setuptools>=69.0,<81.0.0"]
 build-backend = "setuptools.build_meta"
 
 [dependency-groups]
