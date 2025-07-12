@@ -19,7 +19,7 @@ caelum_sys.egg-info/
 test_*.txt
 example_*.txt
 *.log
-tests/
+.pytest_cache/
 *.bak
 
 # Development/testing directories
