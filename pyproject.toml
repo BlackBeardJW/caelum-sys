@@ -1,3 +1,31 @@
+[project]
+name = "caelum-sys"
+version = "0.3.0"
+description = "A human-friendly system automation layer for scripting and AI agents"
+authors = [{ name = "Joshua Wells", email = "your-email@example.com" }]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Topic :: System :: Shells",
+]
+requires-python = ">=3.9"
+dependencies = [
+    "psutil",
+    "pyautogui",
+    "requests",  # For network tools and potential LLM integration
+    "pillow",    # Required by pyautogui for screenshots
+]
+
+[project.scripts]
+caelum-sys = "caelum_sys.cli:main"
+
 [build-system]
-requires = ["setuptools>=42", "wheel"]
+requires = ["setuptools >= 77.0.3"]
 build-backend = "setuptools.build_meta"
+
+[dependency-groups]
+tests = ["pytest"]

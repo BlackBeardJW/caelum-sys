@@ -42,12 +42,6 @@ from .registry import get_registered_command_phrases
 from .plugins import load_plugins
 load_plugins()
 
-# Package metadata
-__version__ = "0.1.5"
-__author__ = "Joshua Wells"
-__email__ = "your-email@example.com"  # Update with your actual email
-__description__ = "Human-friendly system automation toolkit"
-
 # Public API - these functions are available when users import the package
 __all__ = [
     "do",                           # Main function to execute commands
