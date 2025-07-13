@@ -4,8 +4,8 @@ from .auto_import_plugins import load_all_plugins
 from .core_actions import do
 from .registry import get_registered_command_phrases
 
-# Auto-load all plugins when package is imported
-load_all_plugins()
+# Auto-load all plugins when package is imported (quiet mode)
+load_all_plugins(verbose=False)
 
 __version__ = "0.3.0"
 __author__ = "Joshua Wells"

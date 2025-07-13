@@ -15,15 +15,10 @@ dist/
 caelum_sys.egg-info/
 *.egg
 
-# Test and temp files
-test_*.txt
+# Temp files
 example_*.txt
 *.log
-.pytest_cache/
 *.bak
-
-# Development/testing directories
-test_project/
 
 # IDE/editor configs
 .vscode/

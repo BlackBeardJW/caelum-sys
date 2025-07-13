@@ -239,20 +239,17 @@ def backup_database():
 
 ---
 
-## 🧪 Development & Testing
+## 🛠️ Development
 
 ```bash
 # Install development dependencies
 pip install -e ".[dev]"
 
-# Run tests
-pytest tests/
-
 # Format code
 black caelum_sys/
 isort caelum_sys/
 
-# Type checking
+# Type checking (optional)
 mypy caelum_sys/
 
 # Build package
@@ -291,13 +288,13 @@ We welcome contributions! Here's how to get started:
 1. **Fork the repository**
 2. **Create a feature branch**: `git checkout -b feature/amazing-plugin`
 3. **Add your plugin** to `caelum_sys/plugins/`
-4. **Write tests** for your functionality
+4. **Test your functionality** with the CLI or programmatic interface
 5. **Submit a pull request**
 
 **Contribution Ideas:**
 - 🔌 New plugins (email, database, cloud services)
 - 📚 Documentation improvements
-- 🧪 Additional test coverage
+- 🔧 Performance optimizations
 - 🐛 Bug fixes and optimizations
 - 🌍 Cross-platform compatibility
 

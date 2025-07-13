@@ -13,10 +13,6 @@ recursive-include caelum_sys *.py
 # Exclude development and build artifacts
 exclude setup.py.old
 exclude README_old.md
-exclude test_project/
-recursive-exclude test_project *
-exclude tests/
-recursive-exclude tests *
 
 # Exclude build and cache files
 global-exclude __pycache__
@@ -28,5 +24,4 @@ global-exclude *.log
 # Exclude development artifacts
 exclude .gitignore
 exclude screenshot.png
-exclude test_*.txt
 exclude example_*.txt

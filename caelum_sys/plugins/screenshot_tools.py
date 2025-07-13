@@ -4,6 +4,7 @@ Screenshot tools plugin for capturing screen content in various formats and regi
 
 try:
     import pyautogui
+
     SCREENSHOT_AVAILABLE = True
 except ImportError:
     pyautogui = None  # type: ignore

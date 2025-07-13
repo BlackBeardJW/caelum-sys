@@ -4,6 +4,7 @@ Text and clipboard operations plugin for content manipulation and transfer.
 
 try:
     import pyperclip
+
     CLIPBOARD_AVAILABLE = True
 except ImportError:
     pyperclip = None  # type: ignore

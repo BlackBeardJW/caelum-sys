@@ -6,6 +6,7 @@ import os  # For executing system commands
 
 try:
     import pyautogui  # For sending keyboard shortcuts to control media
+
     MEDIA_CONTROLS_AVAILABLE = True
 except ImportError:
     pyautogui = None  # type: ignore
@@ -17,51 +18,86 @@ from caelum_sys.registry import register_command
 @register_command("pause music")
 def pause_music():
     """Toggle play/pause for the currently active media player."""
-    pyautogui.press("playpause")
-    return "⏸️ Toggled play/pause."
+    if not MEDIA_CONTROLS_AVAILABLE or pyautogui is None:
+        return "❌ Media controls not available on this system"
+    try:
+        pyautogui.press("playpause")
+        return "⏸️ Toggled play/pause."
+    except Exception as e:
+        return f"❌ Failed to control media: {e}"
 
 
 @register_command("mute volume")
 def mute_volume():
     """Toggle system volume mute on/off."""
-    pyautogui.press("volumemute")
-    os.system("nircmd mutesysvolume toggle")  # Optional nircmd support
-    return "🔇 Volume muted/unmuted."
+    if not MEDIA_CONTROLS_AVAILABLE or pyautogui is None:
+        return "❌ Media controls not available on this system"
+    try:
+        pyautogui.press("volumemute")
+        os.system("nircmd mutesysvolume toggle")  # Optional nircmd support
+        return "🔇 Volume muted/unmuted."
+    except Exception as e:
+        return f"❌ Failed to control volume: {e}"
 
 
 @register_command("volume up")
 def volume_up():
     """Increase the system volume by one step."""
-    pyautogui.press("volumeup")
-    return "🔊 Volume increased."
+    if not MEDIA_CONTROLS_AVAILABLE or pyautogui is None:
+        return "❌ Media controls not available on this system"
+    try:
+        pyautogui.press("volumeup")
+        return "🔊 Volume increased."
+    except Exception as e:
+        return f"❌ Failed to increase volume: {e}"
 
 
 @register_command("volume down")
 def volume_down():
     """Decrease the system volume by one step."""
-    pyautogui.press("volumedown")
-    return "🔉 Volume decreased."
+    if not MEDIA_CONTROLS_AVAILABLE or pyautogui is None:
+        return "❌ Media controls not available on this system"
+    try:
+        pyautogui.press("volumedown")
+        return "🔉 Volume decreased."
+    except Exception as e:
+        return f"❌ Failed to decrease volume: {e}"
 
 
 @register_command("next track")
 def next_track():
     """Skip to the next track in the currently playing media."""
-    pyautogui.press("nexttrack")
-    return "⏭️ Skipped to next track."
+    if not MEDIA_CONTROLS_AVAILABLE or pyautogui is None:
+        return "❌ Media controls not available on this system"
+    try:
+        pyautogui.press("nexttrack")
+        return "⏭️ Skipped to next track."
+    except Exception as e:
+        return f"❌ Failed to skip track: {e}"
 
 
 @register_command("previous track")
 def previous_track():
     """Go back to the previous track in the currently playing media."""
-    pyautogui.press("prevtrack")
-    return "⏮️ Went to previous track."
+    if not MEDIA_CONTROLS_AVAILABLE or pyautogui is None:
+        return "❌ Media controls not available on this system"
+    try:
+        pyautogui.press("prevtrack")
+        return "⏮️ Went to previous track."
+    except Exception as e:
+        return f"❌ Failed to go to previous track: {e}"
 
 
 @register_command("open media player")
 def open_media_player():
     """Open or activate a media player."""
-    pyautogui.press("playpause")
-    return "🎵 Media player toggled (or opened if already running)."
+    if not MEDIA_CONTROLS_AVAILABLE or pyautogui is None:
+        return "❌ Media controls not available on this system"
+    try:
+        pyautogui.press("playpause")
+        return "🎵 Media player toggled (or opened if already running)."
+    except Exception as e:
+        return f"❌ Failed to open media player: {e}"
 
 
 # Additional utility functions for media control (not registered as commands)
@@ -69,6 +105,8 @@ def open_media_player():
 
 def _check_media_keys_support():
     """Check if the system supports media keys."""
+    if not MEDIA_CONTROLS_AVAILABLE or pyautogui is None:
+        return False
     try:
         return hasattr(pyautogui, "press") and "playpause" in pyautogui.KEYBOARD_KEYS
     except:
