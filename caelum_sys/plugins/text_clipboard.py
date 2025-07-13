@@ -2,7 +2,12 @@
 Text and clipboard operations plugin for content manipulation and transfer.
 """
 
-import pyperclip
+try:
+    import pyperclip
+    CLIPBOARD_AVAILABLE = True
+except ImportError:
+    pyperclip = None  # type: ignore
+    CLIPBOARD_AVAILABLE = False
 
 from caelum_sys.registry import register_command
 
@@ -10,6 +15,8 @@ from caelum_sys.registry import register_command
 @register_command("copy text to clipboard", safe=True)
 def copy_to_clipboard(text: str):
     """Copy text to the system clipboard."""
+    if not CLIPBOARD_AVAILABLE or pyperclip is None:
+        return "❌ Clipboard functionality not available on this system"
     try:
         pyperclip.copy(text)
         return f"📋 Copied to clipboard: {text[:50]}{'...' if len(text) > 50 else ''}"
@@ -20,6 +27,8 @@ def copy_to_clipboard(text: str):
 @register_command("get clipboard content", safe=True)
 def get_clipboard():
     """Get current clipboard content."""
+    if not CLIPBOARD_AVAILABLE or pyperclip is None:
+        return "❌ Clipboard functionality not available on this system"
     try:
         content = pyperclip.paste()
         if not content:
@@ -32,6 +41,8 @@ def get_clipboard():
 @register_command("clear clipboard", safe=True)
 def clear_clipboard():
     """Clear the clipboard content."""
+    if not CLIPBOARD_AVAILABLE or pyperclip is None:
+        return "❌ Clipboard functionality not available on this system"
     try:
         pyperclip.copy("")
         return "📋 Clipboard cleared"
@@ -42,6 +53,8 @@ def clear_clipboard():
 @register_command("append to clipboard", safe=True)
 def append_to_clipboard(text: str):
     """Append text to current clipboard content."""
+    if not CLIPBOARD_AVAILABLE or pyperclip is None:
+        return "❌ Clipboard functionality not available on this system"
     try:
         current = pyperclip.paste()
         new_content = current + text if current else text

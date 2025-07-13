@@ -4,7 +4,12 @@ Media controls plugin for volume and playback control via keyboard shortcuts.
 
 import os  # For executing system commands
 
-import pyautogui  # For sending keyboard shortcuts to control media
+try:
+    import pyautogui  # For sending keyboard shortcuts to control media
+    MEDIA_CONTROLS_AVAILABLE = True
+except ImportError:
+    pyautogui = None  # type: ignore
+    MEDIA_CONTROLS_AVAILABLE = False
 
 from caelum_sys.registry import register_command
 
