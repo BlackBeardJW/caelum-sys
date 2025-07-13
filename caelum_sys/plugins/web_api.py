@@ -4,6 +4,7 @@ Web and API operations plugin for internet connectivity and data retrieval.
 
 import json
 import webbrowser
+from typing import Union
 from urllib.parse import quote_plus
 
 import requests
@@ -64,7 +65,7 @@ def get_page_title(url: str):
 
 
 @register_command("download file from {url}", safe=False)
-def download_file(url: str, filename: str | None = None):
+def download_file(url: str, filename: Union[str, None] = None):
     """Download a file from the given URL."""
     try:
         if not filename:
