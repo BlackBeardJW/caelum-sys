@@ -8,10 +8,11 @@ def load_all_plugins():
     for file in os.listdir(plugins_dir):
         if file.endswith(".py") and not file.startswith("__"):
             module_name = f"caelum_sys.plugins.{file[:-3]}"
-            importlib.import_module(module_name)
-            print(f"🔌 Loaded plugin: {module_name}")
-            # Ensure the plugin is registered
-            if hasattr(importlib.import_module(module_name), "register"):
-                importlib.import_module(module_name).register()
-            else:
-                print(f"⚠️ Plugin {module_name} does not have a register function.")
+            try:
+                module = importlib.import_module(module_name)
+                print(f"🔌 Loaded plugin: {module_name}")
+                # Ensure the plugin is registered (if it has a register function)
+                if hasattr(module, "register"):
+                    module.register()
+            except ImportError as e:
+                print(f"⚠️ Failed to load plugin '{file[:-3]}': {e}")

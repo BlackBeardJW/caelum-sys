@@ -1,3 +1,76 @@
 [build-system]
-requires = ["setuptools>=42", "wheel"]
+requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "caelum-sys"
+version = "0.3.0"
+description = "System automation toolkit with 117+ commands across 16 plugins - natural language interface for developers"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+authors = [
+    {name = "Joshua Wells"},
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: System :: Shells",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: System :: Systems Administration",
+    "Topic :: Utilities",
+]
+keywords = ["automation", "system", "scripting", "ai", "natural-language"]
+dependencies = [
+    "psutil",
+    "pyautogui", 
+    "requests",
+    "pillow",
+    "pyperclip",
+    "pytz", 
+    "python-dateutil",
+]
+
+[project.scripts]
+caelum-sys = "caelum_sys.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/BlackBeardJW/caelum-sys"
+Repository = "https://github.com/BlackBeardJW/caelum-sys"
+Issues = "https://github.com/BlackBeardJW/caelum-sys/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["caelum_sys*"]
+
+[tool.setuptools.package-data]
+caelum_sys = ["py.typed"]
+
+# Modern development tools configuration
+[tool.black]
+line-length = 88
+target-version = ['py39']
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false  # Gradually enable
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]

@@ -1,13 +1,18 @@
-# Include important files
+# Include important documentation files
 include README.md
 include LICENSE
-include USAGE.md
+include CHANGELOG.md
 include pyproject.toml
+
+# Include example files
+recursive-include examples *.py
 
 # Include package data
 recursive-include caelum_sys *.py
 
-# Exclude development/test files
+# Exclude development and build artifacts
+exclude setup.py.old
+exclude README_old.md
 exclude test_project/
 recursive-exclude test_project *
 exclude tests/
