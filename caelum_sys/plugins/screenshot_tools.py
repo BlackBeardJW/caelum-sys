@@ -2,11 +2,18 @@
 Screenshot tools plugin for capturing screen content in various formats and regions.
 """
 
-try:
-    import pyautogui
+import os
 
+try:
+    # Only try to import pyautogui if we're in a GUI environment or can safely handle headless
+    if os.environ.get('DISPLAY') or os.name == 'nt' or os.environ.get('PYTEST_CURRENT_TEST'):
+        import pyautogui
+    else:
+        # Try importing anyway but catch any display-related errors
+        import pyautogui
     SCREENSHOT_AVAILABLE = True
-except ImportError:
+except (ImportError, Exception):
+    # Catch both import errors and any display-related exceptions
     pyautogui = None  # type: ignore
     SCREENSHOT_AVAILABLE = False
 

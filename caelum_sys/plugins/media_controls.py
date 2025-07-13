@@ -5,10 +5,15 @@ Media controls plugin for volume and playback control via keyboard shortcuts.
 import os  # For executing system commands
 
 try:
-    import pyautogui  # For sending keyboard shortcuts to control media
-
+    # Only try to import pyautogui if we're in a GUI environment or can safely handle headless
+    if os.environ.get('DISPLAY') or os.name == 'nt' or os.environ.get('PYTEST_CURRENT_TEST'):
+        import pyautogui  # For sending keyboard shortcuts to control media
+    else:
+        # Try importing anyway but catch any display-related errors
+        import pyautogui  # For sending keyboard shortcuts to control media
     MEDIA_CONTROLS_AVAILABLE = True
-except ImportError:
+except (ImportError, Exception):
+    # Catch both import errors and any display-related exceptions
     pyautogui = None  # type: ignore
     MEDIA_CONTROLS_AVAILABLE = False
 

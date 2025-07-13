@@ -50,7 +50,8 @@ jobs:
     - name: Test basic functionality
       run: |
         if [[ "$RUNNER_OS" == "Linux" ]]; then
-          xvfb-run -a python -c "from caelum_sys import do; print('✅ Basic import and functionality test passed:', do('get current time'))"
+          export DISPLAY=:99
+          xvfb-run -a -s "-screen 0 1024x768x24" python -c "from caelum_sys import do; print('✅ Basic import and functionality test passed:', do('get current time'))"
         else
           python -c "from caelum_sys import do; print('✅ Basic import and functionality test passed:', do('get current time'))"
         fi
