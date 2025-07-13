@@ -2,14 +2,17 @@
 Process management tools plugin for monitoring and controlling system processes.
 """
 
-from caelum_sys.registry import register_command
 import psutil
+
+from caelum_sys.registry import register_command
+
 
 @register_command("list running processes")
 def list_processes():
     """List all currently running processes."""
     processes = [proc.info["name"] for proc in psutil.process_iter(attrs=["name"])]
     return f"🧠 Running Processes:\n" + "\n".join(processes)
+
 
 @register_command("kill process by name {name}", safe=False)
 def kill_process_by_name(name: str):
@@ -26,11 +29,13 @@ def kill_process_by_name(name: str):
         return f"☠️ Killed: {', '.join(killed)}"
     return f"⚠️ No process found with name matching '{name}'"
 
+
 @register_command("get cpu usage")
 def get_cpu_usage():
     """Get current CPU utilization percentage."""
     cpu = psutil.cpu_percent(interval=1)
     return f"💻 CPU usage: {cpu}%"
+
 
 @register_command("get memory usage")
 def get_memory_usage():

@@ -6,17 +6,16 @@ registry = {}
 
 def register_command(trigger, safe=True):
     """Decorator to register a command with the CaelumSys system.
-    
+
     Args:
         trigger: The command phrase that triggers this function
         safe: Whether this command is safe to execute (default: True)
     """
+
     def wrapper(func):
-        registry[trigger.lower()] = {
-            "func": func,
-            "safe": safe
-        }
+        registry[trigger.lower()] = {"func": func, "safe": safe}
         return func
+
     return wrapper
 
 
@@ -39,6 +38,7 @@ def get_safe_registry():
         if command_data.get("safe", True)
     }
 
+
 def clear_registry():
     """Clear all registered commands from the registry (mainly for testing)."""
     global registry
@@ -49,9 +49,9 @@ def get_registry_stats():
     """Get statistics about the current registry state."""
     total_commands = len(registry)
     safe_commands = len(get_safe_registry())
-    
+
     return {
         "total": total_commands,
         "safe": safe_commands,
-        "unsafe": total_commands - safe_commands
+        "unsafe": total_commands - safe_commands,
     }

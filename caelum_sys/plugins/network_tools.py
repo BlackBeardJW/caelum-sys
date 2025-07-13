@@ -2,15 +2,18 @@
 Network tools plugin for basic connectivity and DNS operations.
 """
 
-from caelum_sys.registry import register_command
 import socket
 import subprocess
+
+from caelum_sys.registry import register_command
+
 
 @register_command("get my ip address")
 def get_ip_address():
     """Get the local IP address."""
     ip = socket.gethostbyname(socket.gethostname())
     return f"🌐 Local IP address: {ip}"
+
 
 @register_command("ping {host}")
 def ping_host(host: str):
@@ -21,11 +24,13 @@ def ping_host(host: str):
     except subprocess.CalledProcessError:
         return f"❌ Failed to ping {host}."
 
+
 @register_command("get hostname")
 def get_hostname():
     """Get the system hostname."""
     hostname = socket.gethostname()
     return f"🖥️ Hostname: {hostname}"
+
 
 @register_command("resolve dns for {domain}")
 def resolve_dns(domain: str):
@@ -36,9 +41,11 @@ def resolve_dns(domain: str):
     except socket.gaierror:
         return f"❌ Failed to resolve {domain}"
 
+
 @register_command("open browser at {url}")
 def open_browser(url: str):
     import webbrowser
+
     try:
         webbrowser.open(url)
         return f"🌐 Opened browser at: {url}"

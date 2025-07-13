@@ -1,8 +1,12 @@
 from caelum_sys.registry import register_command
 
+
 @register_command("start cpu monitor")
 def start_cpu_monitor():
-    import threading, psutil, time
+    import threading
+    import time
+
+    import psutil
 
     def monitor():
         with open("cpu_log.txt", "w") as f:
@@ -14,9 +18,13 @@ def start_cpu_monitor():
     threading.Thread(target=monitor, daemon=True).start()
     return "📊 CPU monitoring started (10s log in cpu_log.txt)"
 
+
 @register_command("start memory monitor")
 def start_memory_monitor():
-    import threading, psutil, time
+    import threading
+    import time
+
+    import psutil
 
     def monitor():
         with open("memory_log.txt", "w") as f:
@@ -28,14 +36,18 @@ def start_memory_monitor():
     threading.Thread(target=monitor, daemon=True).start()
     return "📊 Memory monitoring started (10s log in memory_log.txt)"
 
+
 @register_command("start disk monitor")
 def start_disk_monitor():
-    import threading, psutil, time
+    import threading
+    import time
+
+    import psutil
 
     def monitor():
         with open("disk_log.txt", "w") as f:
             for _ in range(10):  # log 10 times over 10 seconds
-                disk = psutil.disk_usage('/').percent
+                disk = psutil.disk_usage("/").percent
                 f.write(f"Disk Usage: {disk}%\n")
                 time.sleep(1)
 
