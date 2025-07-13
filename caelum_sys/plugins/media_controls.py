@@ -6,7 +6,11 @@ import os  # For executing system commands
 
 try:
     # Only try to import pyautogui if we're in a GUI environment or can safely handle headless
-    if os.environ.get('DISPLAY') or os.name == 'nt' or os.environ.get('PYTEST_CURRENT_TEST'):
+    if (
+        os.environ.get("DISPLAY")
+        or os.name == "nt"
+        or os.environ.get("PYTEST_CURRENT_TEST")
+    ):
         import pyautogui  # For sending keyboard shortcuts to control media
     else:
         # Try importing anyway but catch any display-related errors
