@@ -22,15 +22,16 @@ def get_file_size(path: str):
         size_bytes = os.path.getsize(path)
 
         # Convert to human readable format
+        size = float(size_bytes)  # Use float for calculations
         for unit in ["B", "KB", "MB", "GB"]:
-            if size_bytes < 1024:
-                size_human = f"{size_bytes:.1f} {unit}"
+            if size < 1024:
+                size_human = f"{size:.1f} {unit}"
                 break
-            size_bytes /= 1024
+            size /= 1024
         else:
-            size_human = f"{size_bytes:.1f} TB"
+            size_human = f"{size:.1f} TB"
 
-        return f"📏 File size: {os.path.getsize(path)} bytes ({size_human})"
+        return f"📏 File size: {size_bytes} bytes ({size_human})"
     except Exception as e:
         return f"❌ Error getting file size: {e}"
 
