@@ -55,6 +55,8 @@ jobs:
           python -c "from caelum_sys import do; print('✅ Basic import and functionality test passed:', do('get current time'))"
         fi
       shell: bash
+      env:
+        PYTHONIOENCODING: 'utf-8'
 
   build:
     needs: test
